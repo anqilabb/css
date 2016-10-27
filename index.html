@@ -1,0 +1,125 @@
+<!DOCTYPE HTML5>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<title>简易相册</title>
+		<style>
+			body{
+				background:rgb(253,250,241);
+			}
+			#photo{
+				margin-left:20px;
+				min-width:1167px;
+			}
+			#big{
+				float:left;
+				width:70%;
+				min-width:816px;
+			}
+			.big2,.big3,.big4{ /*若照片增加，这里改s*/
+				display:none;
+			}
+			#small{
+				float:right;
+				width:30%;
+				min-width:350px;
+			}
+			#small div{
+				width:150px;
+				height:150px;
+				float:left;
+				margin:0 10px 10px 10px;
+				cursor:pointer;
+			}
+			#small div:hover{
+				box-shadow:2px 2px 20px black;
+			}
+			.small1{
+				background:url('1.jpg') no-repeat -20px -20px;
+			}
+			.small2{
+				background:url('2.jpg') no-repeat -100px -80px;
+			}
+			.small3{
+				background:url('3.jpg') no-repeat -160px -160px;
+			}
+			.small4{
+				background:url('4.jpg') no-repeat -160px -160px;
+			}/*改*/
+			.shadow{
+				box-shadow:2px 2px 20px black;
+			}
+		</style>
+	</head>
+	<body>
+		<div id='photo'>
+			<div id='big'>
+				<img class='big1' src='1.jpg' />
+				<img class='big2' src='2.jpg' />
+				<img class='big3' src='3.jpg' />
+				<img class='big4' src='4.jpg' /><!--改-->
+			</div>
+			<div id='small'>
+				<div class='small1 shadow'></div>
+				<div class='small2'></div>
+				<div class='small3'></div>
+				<div class='small4'></div><!--改-->
+			</div>
+		<div>
+	</body>
+	<script>
+		var flag=1
+		document.querySelector('.small2').addEventListener('click',function(){
+			if(flag!=2){
+				document.querySelector('.big2').style.display='block'
+				document.querySelector('.big'+flag).style.display='none'
+				document.querySelector('.small2').className=document.querySelector('.small2').className+' shadow'
+				document.querySelector('.small'+flag).className='small'+flag
+				flag=2
+			}
+		})
+		document.querySelector('.small1').addEventListener('click',function(){
+			if(flag!=1){
+				document.querySelector('.big1').style.display='block'
+				document.querySelector('.big'+flag).style.display='none'
+				document.querySelector('.small1').className=document.querySelector('.small1').className+' shadow'
+				document.querySelector('.small'+flag).className='small'+flag
+				flag=1
+			}
+		})
+		document.querySelector('.small3').addEventListener('click',function(){
+			if(flag!=3){
+				document.querySelector('.big3').style.display='block'
+				document.querySelector('.big'+flag).style.display='none'
+				document.querySelector('.small3').className=document.querySelector('.small3').className+' shadow'
+				document.querySelector('.small'+flag).className='small'+flag
+				flag=3
+			}
+		})
+		document.querySelector('.small4').addEventListener('click',function(){
+			if(flag!=4){
+				document.querySelector('.big4').style.display='block'
+				document.querySelector('.big'+flag).style.display='none'
+				document.querySelector('.small4').className=document.querySelector('.small4').className+' shadow'
+				document.querySelector('.small'+flag).className='small'+flag
+				flag=4
+			}
+		})
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
