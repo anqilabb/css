@@ -1,0 +1,172 @@
+<!DOCTYPE html5>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<style>
+			.wrapper{/*外框，只是个样式*/
+				margin-left:auto;
+				margin-right:auto;
+				width:300px;
+				height:320px;	
+				background:green;
+				padding:10px;
+				border-radius:5px;
+			}
+			.photo{/*内框，限制展现轮播图的高宽*/
+				width:300px;
+				height:300px;
+				overflow:hidden;
+			}
+			.moveAll{/*使图片的左浮动具有足够的空间，以及设置css动画转换时间*/
+				width:900px;				
+				transition:1s;
+			}
+			.moveAll>div{/*设置照片为固定大小的正方形并且左浮动*/			
+				width:300px;
+				height:300px;
+				overflow:hidden;
+				float:left;	
+			}
+			.freeDo{/*设置自动播放那部分选项左浮动*/
+				float:left;
+			}
+			.freeDo div{/*设置自动播放部分左浮动以及样式*/
+				float:left;
+				margin-top:4px;
+				margin-left:10px;
+				color:white;
+				cursor:pointer;
+			}
+			.freeDo div:hover{/*设置伪类样式*/
+				color:rgb(207,227,246);
+			}
+			#do{/*设置页面打开是“自动播放”为选中*/
+				color:rgb(207,227,246);
+			}
+			.radio{
+				float:right;/*使小圆点集体右浮动*/
+			}
+			.wrapper .radio div{/*设置小圆点*/
+				width:20px;
+				height:20px;
+				border-radius:10px;
+				background:yellow;
+				float:left;
+				border:solid 1px white;
+				margin-top:4px;
+				cursor:pointer;
+			}
+			#r1{/*设置页面初始小红点*/
+				background:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='wrapper'>
+			<div class='photo'>
+				<div class='moveAll'><!--设置这个类是为了集体移动图片-->
+					<div id='p1'><img src='./1.jpg' /></div>
+					<div id='p2'><img src='./皮卡丘.jpg' /></div>
+					<div id='p3'><img src='./火锅.jpg' /></div>
+				</div>
+			</div>
+			<div class='freeDo'>
+				<div id='do' onclick=go()>自动播放</div>
+				<div id='dont' onclick=notGo()>停止播放</div>
+			</div>
+			<div class='radio'>
+				<div id='r1'></div>
+				<div id='r2'></div>
+				<div id='r3'></div>
+			</div>
+		</div>
+		<script>
+			var flag=1
+			var freeDo=1
+			//以下是设置函数
+			function d1(){//转换图片函数
+				if(flag!=1){
+					document.querySelector('.moveAll').style.marginLeft='0'
+					document.querySelector('#r'+flag).style.background='yellow'
+					document.querySelector('#r1').style.background='red'
+					flag=1				
+				}
+			}
+			function d2(){//转换图片函数
+				if(flag!=2){
+					document.querySelector('.moveAll').style.marginLeft='-300px'
+					document.querySelector('#r'+flag).style.background='yellow'
+					document.querySelector('#r2').style.background='red'
+					flag=2					
+				}
+			}
+			function d3(){//转换图片函数
+				if(flag!=3){
+					document.querySelector('.moveAll').style.marginLeft='-600px'
+					document.querySelector('#r'+flag).style.background='yellow'
+					document.querySelector('#r3').style.background='red'
+					flag=3					
+				}
+			}
+			function go(){//关于自动播放的判断的变量改变的函数
+				document.querySelector('#do').style.color='rgb(207,227,246)'
+				document.querySelector('#dont').style.color='white'
+				freeDo=1
+				setTimeout(free,3000)
+			}
+			function notGo(){//关于自动播放的判断的变量改变的函数
+				document.querySelector('#dont').style.color='rgb(207,227,246)'
+				document.querySelector('#do').style.color='white'
+				freeDo=0
+			}
+			//以下是绑定事件
+			document.querySelector('#r1').addEventListener('click',d1)
+			document.querySelector('#r2').addEventListener('click',d2)
+			document.querySelector('#r3').addEventListener('click',d3)
+			//以下是自动播放
+			free=function(){
+				if(freeDo==1){//判断是否需要自动播放
+					if(flag==1){
+						d2()
+						flag=2
+						setTimeout(free,3000)
+					}
+					else if(flag==2){
+						d3()
+						flag=3
+						setTimeout(free,3000)
+					}
+					else{
+						d1()
+						flag=1
+						setTimeout(free,3000)
+					}
+				}
+			}		
+			setTimeout(free,3000)//启动自动播放	
+		</script>
+	</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
