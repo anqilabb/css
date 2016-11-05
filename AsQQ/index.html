@@ -1,0 +1,255 @@
+<!DOCTYPE HTML5>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<title>qq模仿</title>
+		<style>
+			.QQ{
+				box-shadow:1px 1px 5px black;
+				width:300px;
+				margin-left:auto;
+				margin-right:auto;
+			}
+			a{
+				text-decoration:none;
+				color:rgb(148,141,148);
+			}
+			img{
+				cursor:pointer;
+			}
+			/*head部分*/
+			.head{
+				width:300px;
+				height:35px;
+				padding-top:5px;
+				background:rgb(18,183,245);
+			}
+			.head .img{
+				width:30px;
+				height:30px;
+				margin-left:10px;
+				border-radius:15px;
+				overflow:hidden;
+				float:left;
+			}
+			.head div img{
+				height:40px;
+			}
+			.nav{
+				margin-top:3px;
+				width:173px;
+				height:35px;
+				float:right;
+				font-size:17px;
+				color:rgb(254,253,251);
+			}
+			.nav>a{
+				float:right;
+				margin-right:10px;
+				color:white;
+			}
+			/*content部分*/
+			.content{
+				height:415px;
+				width:300px;
+				background:rgb(248,249,250);
+				overflow:hidden;/*滚动轴设置*/	;
+			}
+			.contentOne{
+				width:100%;
+				height:125px;
+				background:white;
+			}
+			.so{
+				width:280px;
+				height:25px;
+				margin-left:10px;
+				border:none;
+				background:rgb(243,243,243);
+				border-radius:3px;
+				text-align:center;
+			}
+			.imgAll{
+				height:100px;
+				width:242px;
+				margin-left:27px;
+				display:flex;
+				flex-direction:row;
+				justify-content:space-between;
+				align-items:center;
+			}
+			.imgAll img{
+				height:55px;
+			}
+			.navMuch{
+				width:300px;
+				height:40px;
+				background:white;
+				border-bottom:1px solid rgb(233,234,234);
+			}
+			.navMuch img{
+				height:40px;
+				float:left;
+			}
+			.text{
+				height:40px;
+				display:flex;
+				justify-content:space-between;
+				align-items:center;
+				font-size:17px;
+			}
+			.navMuch .num{
+				margin-right:10px;
+				font-size:11px;
+				color:rgb(140,140,140);
+				
+			}
+			.friend{
+				display:none;
+				width:300px;
+				height:48px;
+				background:white;
+				border-bottom:1px solid rgb(230,231,231);
+			}
+			.friend>img{
+				width:36px;
+				height:36px;
+				border-radius:18px;
+				float:left;
+				margin-top:6px;
+				margin-left:10px;
+				margin-right:8px;
+			}
+			.friend>.message{
+				float:left;
+				margin-top:3px;
+			}
+			.friend>.messageTwo{
+				color:rgb(130,130,130);
+				font-size:13px;
+				text-indent:-3.8em;
+				margin-top:2px;
+				
+			}
+			.friend>.messageTwo>img{
+				margin:0 2px;
+				margin-bottom:-1px;
+			}
+			/*foot部分*/
+			.foot{
+				width:300px;
+				height:50px;
+				display:flex;
+				flex-direction:row;
+				justify-content:space-around;
+				align-items:center;
+				border-top:1px solid rgb(155,157,177);
+			}
+			.foot a img{
+				height:40px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='QQ'>
+			<div class='head'>
+				<div class='img'>
+					<img src='./img/皮卡丘.jpg' />	
+				</div>
+				<div class='nav'>联系人<a href='#'>添加</a></div>
+			</div>
+			<div class='content'>
+				<div class='contentOne'>
+					<input class='so' type='text' placeholder='搜索'/>
+					<div class='imgAll'>
+						<img src='./img/py.jpg' />
+						<img src='./img/qj.jpg' />
+						<img src='./img/gc.jpg' />
+					</div>
+					</br>
+					<div class='navMuch'><img src='./img/bj1.jpg' /><div class='text'>特别关心<span class='num'>0/0</span></div></div>
+					<div class='navMuch'><img src='./img/bj1.jpg' /><div class='text'>常用群聊<span class='num'>0</span></div></div>
+					</br>
+					<div class='navMuch friends'><img class='fimg' src='./img/bj1.jpg' /><div class='text'>我的好友<span class='num'>1/1</span></div></div>
+					<div class='friend'><img src='./img/me.jpg' /><div class='message'>竹逍钢</div></br><div class='messageTwo'>[WiFi在线]<img src='./img/room2.jpg'>懒得做换行</div></div>
+					<div class='navMuch'><img src='./img/bj1.jpg' /><div class='text'>朋友<span class='num'>0/0</span></div></div>
+					<div class='navMuch'><img src='./img/bj1.jpg' /><div class='text'>家人<span class='num'>0/0</span></div></div>
+					<div class='navMuch'><img src='./img/bj1.jpg' /><div class='text'>同学<span class='num'>0/0</span></div></div>
+				</div>
+			</div>
+			<div class='foot'>
+				<a href='#'><img src='./img/1.jpg' /></a>
+				<a href='#'><img src='./img/2.jpg' /></a>
+				<a href='#'><img src='./img/3.jpg' /></a>
+			</div>
+		</div>
+
+	</body>
+	<script>
+		var flag=1//滚动轴点击持续出现和自动消失的特效
+		var scrollHidden=function(){
+			flag=1
+			document.querySelector('.content').style.overflow='hidden'
+		}
+		var scrollShow=function(){
+			document.querySelector('.content').style.overflowY='auto'
+		}
+			function a(){
+			alert(1)
+		}
+		document.querySelector('.content').onmousedown=scrollShow
+		document.querySelector('.content').addEventListener('mouseup',function(){
+			if(flag!=0){
+				flag=0
+				setTimeout(scrollHidden,3000)
+			}
+		})
+		//----------------------------------
+		var open='yfimg'
+		var openMore=function(){//只是个单体判断
+			if(open=='yfimg'){
+				document.querySelector('.friend').style.display='block'
+			}
+			else if(open=='nfimg'){
+				document.querySelector('.friend').style.display='none'
+			}
+		}
+		for(var i=0;i<document.querySelectorAll('.navMuch img').length;i++){//设置点击时小三角指针的方向改变s
+			document.querySelectorAll('.navMuch img')[i].addEventListener('click',function(e){
+				e.stopPropagation();
+				if(this.src=='file:///E:/xampp/htdocs/css/QQ%E6%A8%A1%E4%BB%BF/img/bj1.jpg'){
+					this.src='./img/bj0.jpg'
+					open='y'+this.className
+				}
+				else{
+					this.src='./img/bj1.jpg'
+					open='n'+this.className
+				}
+				openMore()
+			})
+		}
+		document.querySelector('.friends').addEventListener('click',function(){
+			if(document.querySelectorAll('.navMuch img')[2].src=='file:///E:/xampp/htdocs/css/QQ%E6%A8%A1%E4%BB%BF/img/bj1.jpg'){
+				document.querySelectorAll('.navMuch img')[2].src='./img/bj0.jpg'
+				open='yfimg'
+			}
+			else{
+				document.querySelectorAll('.navMuch img')[2].src='./img/bj1.jpg'
+				open='nfimg'
+			}
+			openMore()
+		})
+	</script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
