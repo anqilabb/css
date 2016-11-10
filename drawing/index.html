@@ -1,71 +1,147 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"></p> <p><html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta charset='utf-8' />
-<title>Canvas</title>
-<meta name = "viewport" content = "width = device-width, user-scalable = no">
-<style>
-	*{
-		margin:0;
-	}
-</style>
-</head>
-<body>
-<canvas id="canvas" ></canvas>
-<script type="text/javascript">
-	var canvas = document.getElementById("canvas");
-//full screen
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight;
-//是否支持触摸
-var touchable = 'createTouch' in document;
-if (touchable) {
-canvas.addEventListener('touchstart', onTouchStart, false);
-canvas.addEventListener('touchmove', onTouchMove, false);
-}
-else
-{
-alert("touchable is false !");
-}
-//上一次触摸坐标
-var lastX;
-var lastY;var ctx =canvas.getContext("2d");
-ctx.lineWidth=10;//画笔粗细
-ctx.strokeStyle="#D2691E";//画笔颜色
-//触摸开始事件
-function onTouchStart(event) {
-event.preventDefault();
-lastX=event.touches[0].clientX;
-lastY=event.touches[0].clientY;
-drawRound(lastX,lastY);}
-//触摸滑动事件
-function onTouchMove(event) {
-try
-{
-event.preventDefault();
-drawLine(lastX,lastY,event.touches[0].clientX,event.touches[0].clientY);
-lastX=event.touches[0].clientX;
-lastY=event.touches[0].clientY;
-}
-catch(err){
-alert( err.description);
-}}//画圆
-function drawRound(x,y)
-{
-ctx.fillStyle="#D2691E";
-ctx.beginPath();
-ctx.arc(x,y,5,0,Math.PI*2,true);
-ctx.closePath();
-ctx.fill();
-}
-//画线
-function drawLine(startX,startY,endX,endY)
-{
-ctx.beginPath();
-ctx.lineCap="round";
-ctx.moveTo(startX,startY);
-ctx.lineTo(endX,endY);
-ctx.stroke();
-}
-</script>
-</body>
+<!DOCTYPE html5>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<title>Canvas</title>
+		<meta name = "viewport" content = "width = device-width, user-scalable = no">
+		<style>
+			*{
+				margin:0;
+			}
+			canvas{
+				border:1px solid black;
+			}
+			.all{
+				width:1300px;
+				height:600px;
+			}
+			.color{
+				width:440px;
+				float:right;
+			}
+			.all>.color>div{
+				width:100px;
+				height:100px;
+				float:left;
+				margin-bottom:10px;
+				margin-right:10px;
+				cursor:pointer;
+			}
+			.black{
+				background:black;
+			}
+			.red{
+				background:red;
+			}
+			.green{
+				background:green;
+			}
+			.yellow{
+				background:yellow;
+			}
+			.pink{
+				background:pink;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='all'>
+			<canvas></canvas>
+			<div class='color'>
+				<div class='black'></div>
+				<div class='red'></div>
+				<div class='green'></div>
+				<div class='yellow'></div>
+				<div class='pink'></div>
+			</div>
+		</div>
+	</body>
+	<script>
+	//此为变色的js部分
+		var colorChange
+		for(var i=0;document.querySelectorAll('.color div').length>i;i++){
+			document.querySelectorAll('.color div')[i].addEventListener('click',function(){
+				colorChange=this.className
+			})
+		}
+	//此为画图的js
+		var start=0
+		var x,y,x2,y2
+		var c=document.querySelector('canvas')
+		var ctx=c.getContext('2d')
+			c.width=800;
+			c.height=500;
+		function drawLine(x,y,x2,y2){//画线条
+			ctx.beginPath()
+			ctx.strokeStyle=colorChange
+			ctx.lineWidth='6'
+			ctx.moveTo(x2,y2)
+			ctx.lineTo(x,y)
+			ctx.lineCap='round'
+			ctx.stroke()
+		}
+		function drawRound(x,y){//单击出现圆
+			ctx.fillStyle=colorChange
+			ctx.beginPath()
+			ctx.arc(x,y,3,0,2*Math.PI,true)
+			ctx.fill()
+		}
+		document.querySelector('canvas').addEventListener('mousedown',function(e){
+			start=1
+			x2=e.clientX
+			y2=e.clientY
+			x=e.clientX
+			y=e.clientY
+			drawRound(x,y)
+		})
+		document.querySelector('canvas').addEventListener('mouseup',function(){
+			start=0
+		})
+		document.querySelector('canvas').addEventListener('mousemove',function(e){
+			e.preventDefault()
+			if(start!=0){
+				x=e.clientX
+				y=e.clientY
+				drawLine(x,y,x2,y2)
+				x2=e.clientX
+				y2=e.clientY
+			}
+		})
+	</script>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
