@@ -2,18 +2,14 @@
 <html>
 	<head>
 		<meta charset='utf-8' />
-		<title>Canvas</title>
-		<meta name = "viewport" content = "width = device-width, user-scalable = no">
+		<title>你画我猜</title>
 		<style>
-			*{
-				margin:0;
-			}
 			canvas{
 				border:1px solid black;
 			}
 			.all{
 				width:1300px;
-				height:600px;
+				height:550px;
 			}
 			.color{
 				width:440px;
@@ -42,6 +38,12 @@
 			.pink{
 				background:pink;
 			}
+			.blue{
+				background:blue;
+			}
+			button{
+				cursor:pointer;
+			}
 		</style>
 	</head>
 	<body>
@@ -53,14 +55,18 @@
 				<div class='green'></div>
 				<div class='yellow'></div>
 				<div class='pink'></div>
+				<div class='blue'></div>
 			</div>
+			<button class='clear'>清空屏幕</button>
+			<button class='white'>橡皮擦</button>
+			<button class='drawGuess'>你画我猜</button>
 		</div>
 	</body>
 	<script>
 	//此为变色的js部分
 		var colorChange
-		for(var i=0;document.querySelectorAll('.color div').length>i;i++){
-			document.querySelectorAll('.color div')[i].addEventListener('click',function(){
+		for(var i=0;document.querySelectorAll('.color div,.white').length>i;i++){
+			document.querySelectorAll('.color div,.white')[i].addEventListener('click',function(){
 				colorChange=this.className
 			})
 		}
@@ -74,7 +80,12 @@
 		function drawLine(x,y,x2,y2){//画线条
 			ctx.beginPath()
 			ctx.strokeStyle=colorChange
-			ctx.lineWidth='6'
+			if(colorChange!='white'){
+				ctx.lineWidth='6'
+			}
+			else{
+				ctx.lineWidth='10'
+			}
 			ctx.moveTo(x2,y2)
 			ctx.lineTo(x,y)
 			ctx.lineCap='round'
@@ -83,6 +94,12 @@
 		function drawRound(x,y){//单击出现圆
 			ctx.fillStyle=colorChange
 			ctx.beginPath()
+			if(colorChange!='white'){
+				ctx.arc(x,y,3,0,2*Math.PI,true)
+			}
+			else{
+				ctx.arc(x,y,5,0,2*Math.PI,true)
+			}
 			ctx.arc(x,y,3,0,2*Math.PI,true)
 			ctx.fill()
 		}
@@ -106,6 +123,15 @@
 				x2=e.clientX
 				y2=e.clientY
 			}
+		})
+		//点击清空屏幕
+		document.querySelector('.clear').addEventListener('click',function(){
+			ctx.clearRect(0,0,800,500)
+		})
+		//点击开启画猜模式自动获得词语
+		var term=['老头','蜗牛','乒乓拍','篮球','皮卡丘','王尼玛','米老鼠','喵喵','蓝猫','一箭穿心','万箭穿心','房子','灯塔','小溪','左手']
+		document.querySelector('.drawGuess').addEventListener('click',function(){
+			document.querySelector('.drawGuess').innerHTML=term[Math.floor(Math.random()*term.length)]
 		})
 	</script>
 </html>
