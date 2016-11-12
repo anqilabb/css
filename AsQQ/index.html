@@ -186,7 +186,6 @@
 
 	</body>
 	<script>
-					alert(document.querySelectorAll('.navMuch img')[2].src)
 		var flag=1//滚动轴点击持续出现和自动消失的特效
 		var scrollHidden=function(){
 			flag=1
@@ -218,7 +217,7 @@
 		for(var i=0;i<document.querySelectorAll('.navMuch img').length;i++){//设置点击时小三角指针的方向改变s
 			document.querySelectorAll('.navMuch img')[i].addEventListener('click',function(e){
 				e.stopPropagation();
-				if(this.src=='https://anqilabb.github.io/css/AsQQ/img/bj1.jpg'){
+				if(this.src=='https://anqilabb.github.io/showMyself/AsQQ/img/bj1.jpg'){
 					this.src='./img/bj0.jpg'
 					open='y'+this.className
 				}
@@ -230,7 +229,7 @@
 			})
 		}
 		document.querySelector('.friends').addEventListener('click',function(){
-			if(document.querySelectorAll('.navMuch img')[2].src=='https://anqilabb.github.io/css/AsQQ/img/bj1.jpg'){
+			if(document.querySelectorAll('.navMuch img')[2].src=='https://anqilabb.github.io/showMyself/AsQQ/img/bj1.jpg'){
 				document.querySelectorAll('.navMuch img')[2].src='./img/bj0.jpg'
 				open='yfimg'
 			}
