@@ -216,7 +216,7 @@
 		}
 		for(var i=0;i<document.querySelectorAll('.navMuch img').length;i++){//设置点击时小三角指针的方向改变s
 			document.querySelectorAll('.navMuch img')[i].addEventListener('click',function(e){
-				e.stopPropagation()
+				e.stopPropagation();
 				if(this.src=='https://anqilabb.github.io/css/AsQQ/img/bj1.jpg'){
 					this.src='./img/bj0.jpg'
 					open='y'+this.className
