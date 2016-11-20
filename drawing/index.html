@@ -124,7 +124,7 @@
 				y2=e.clientY
 			}
 		})
-		document.querySelector('.all').addEventListener('mouseup',function(e){//防止画画时划到屏幕外出现bug
+		window.addEventListener('mouseup',function(e){//防止画画时划到屏幕外出现bug
 			start=0
 		})
 		//点击清空屏幕
