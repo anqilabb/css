@@ -1,0 +1,176 @@
+<!DOCTYPE html5>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>成果展示台</title>
+		<style>
+			#all>div{
+				float:left;
+				width:25%;//这里可以设置几个选项卡
+			}
+			#all{
+				width:1350px;
+			}
+			h3{
+				border:1px solid #5599FF;
+				text-align:center;
+				cursor:pointer;
+				background:#CCEEFF;
+			}
+			h3:hover{
+				background:#00BBFF !important;
+			}
+			.title1{
+				background:#00BBFF;
+			}
+			.c1,.c2,.c3,.c4{
+				width:400%;
+				border-top:none;
+				margin-top:-18px;
+				background:#DDDDDD;
+			}
+			.c2{
+				margin-left:-100%;
+			}
+			.c3{
+				margin-left:-200%;
+			}
+			.c4{
+				margin-left:-300%;
+			}
+			.c2,.c3,.c4{
+				display:none;
+			}
+			/**************扩***************/
+			*{
+				text-decoration:none;
+			}
+			article {
+				height:266px;				
+			}
+			.text {
+				width:57%;
+				height:100%;
+				float:left;
+				margin-top:10px;
+				margin-left:10px;
+			}
+			img {
+				width:38%;
+				float:right;
+				margin-top:16px;
+				margin-right:16px;
+				box-shadow:2px 2px  5px black;
+
+			}
+		</style>
+	</head>
+	<body>
+		<div id="all">
+			<div>
+				<h3 class="title1">SimpleAlbum</h3>
+				<div class="c1">
+					<article>
+						<div class="text">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;这是一份简易到你真的看不出这居然是相册的简易相册。以牺牲华丽特效作为代价，你可以得到很多收获，例如对电脑CPU和人脑CPU共同的减压。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在很多类命名的地方采用字母与数字的结合，使代码看上去十分整齐美观。可扩展性良好，只要在几处源码注释的地方进行修改就可以对图片进行修改或者数量增加。<a target="_blank" href="https://anqilabb.github.io/showMyself/SimpleAlbum/">欢迎来看看嘛(/▽＼)</a>
+						</div>
+						<img src="imgOfIndex/1.jpg">
+					</article>
+				</div>
+			</div>
+			<div>
+				<h3 class="title2">LunBoTu</h3>
+				<div class="c2">
+					<article>
+						<div class="text">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;简易版的轮播图，代码扩展性还行，看官们若有兴趣可以加几张图，或者更换几张图，但由于轮播图制作本身就有些复杂，相信各位看官一定不会在我的源代码上面做过多文章（因为这简易轮播图太简易了）。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	如果哪位看官对源代码有兴趣，那就去学bootstrap（<a href='imgOfIndex/bootstrap.zip'>点击下载</a>）吧，那种才是轮播图，我这个嘛也就叫叫轮播图了。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;虽然框架很好用，但是要提升实力的话还是要去解析框架，所以欢迎各位看官来看我的源码，简便易懂，注释多多，<a target="_blank" href="https://anqilabb.github.io/showMyself/LunBoTu/">点击查看哦(/▽＼)</a>	
+						</div>
+						<img src="imgOfIndex/2.jpg">
+					</article>
+				</div>
+			</div>
+			<div>
+				<h3 class="title3">AsQQ</h3>
+				<div class="c3">
+					<article>
+						<div class="text">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;手机qq界面模仿，纯锻炼排版布局技术的一个作品。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;亮点在滚动轴，设置了三秒自动消失的效果以及点击屏幕显示滚动轴与刷新存在时间。<a target="_blank" href="https://anqilabb.github.io/showMyself/AsQQ/">点击查看哦(/▽＼)</a>
+						</div>
+						<img src="imgOfIndex/3.jpg">
+					</article>
+				</div>
+			</div>
+			<div>
+				<h3 class="title4">drawing</h3>
+				<div class="c4">
+					<article>
+						<div class="text">
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我想把它命名为你画我猜，提供六种颜色与橡皮与清屏功能。<br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可对颜色进行修改或者增加。没有制作响应手机的版本。作用是画了之后截屏给各位心仪的女生秀一波自己的技术，<a target="_blank" href="https://anqilabb.github.io/showMyself/drawing/">点击查看哦(/▽＼)</a>
+						</div>
+						<img src="imgOfIndex/4.jpg">
+					</article>
+				</div>
+			</div>
+		</div>
+	
+	<script>
+		var flag=1
+		var color1='#00BBFF'//点击以及滑动之后的颜色
+		var color2='#CCEEFF'//待命的颜色
+		document.querySelector('.title2').onclick=function(){
+			if(flag!=2){
+				document.querySelector('.c2').style.display='block'
+				document.querySelector('.c'+flag).style.display='none'
+				document.querySelector('.title2').style.background=color1
+				document.querySelector('.title'+flag).style.background=color2
+				flag=2		
+			}	
+		}
+		document.querySelector('.title1').onclick=function(){
+			if(flag!=1){
+				document.querySelector('.c1').style.display='block'
+				document.querySelector('.c'+flag).style.display='none'
+				document.querySelector('.title1').style.background=color1
+				document.querySelector('.title'+flag).style.background=color2
+				flag=1
+			}
+		}
+		document.querySelector('.title3').onclick=function(){
+			if(flag!=3){
+				document.querySelector('.c3').style.display='block'
+				document.querySelector('.c'+flag).style.display='none'
+				document.querySelector('.title3').style.background=color1
+				document.querySelector('.title'+flag).style.background=color2
+				flag=3			
+			}
+		}
+		document.querySelector('.title4').onclick=function(){
+			if(flag!=4){
+				document.querySelector('.c4').style.display='block'
+				document.querySelector('.c'+flag).style.display='none'
+				document.querySelector('.title4').style.background=color1
+				document.querySelector('.title'+flag).style.background=color2
+				flag=4				
+			}
+		}
+	</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body></html>
